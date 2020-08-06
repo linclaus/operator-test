@@ -1,0 +1,10 @@
+domain: mycrd.com
+repo: github.com/linclaus/operator-test
+resources:
+- group: webapp
+  kind: Guestbook
+  version: v1
+- group: webapp
+  kind: Guestbook1
+  version: v1
+version: "2"
