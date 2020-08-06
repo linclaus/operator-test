@@ -18,6 +18,7 @@ package controllers
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/go-logr/logr"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -38,10 +39,19 @@ type Guestbook1Reconciler struct {
 // +kubebuilder:rbac:groups=webapp.mycrd.com,resources=guestbook1s/status,verbs=get;update;patch
 
 func (r *Guestbook1Reconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
-	_ = context.Background()
+	ctx := context.Background()
 	_ = r.Log.WithValues("guestbook1", req.NamespacedName)
 
 	// your logic here
+	gb := &webappv1.Guestbook{}
+	if err := r.Get(ctx, req.NamespacedName, gb); err != nil {
+		fmt.Errorf("couldn't find object:%s", req.String())
+	} else {
+		//打印Detail和Created
+		r.Log.V(1).Info("Successfully get detail", "Detail", gb.Spec.Detail)
+		r.Log.V(1).Info("", "Created", gb.Status.Created)
+	}
+	fmt.Printf("guestbook1:%s\n", gb)
 
 	return ctrl.Result{}, nil
 }
