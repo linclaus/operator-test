@@ -1,0 +1,7 @@
+apiVersion: webapp.mycrd.com/v1
+kind: Guestbook2
+metadata:
+  name: guestbook2-sample
+spec:
+  # Add fields here
+  foo: bar
