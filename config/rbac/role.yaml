@@ -29,6 +29,26 @@ rules:
 - apiGroups:
   - webapp.mycrd.com
   resources:
+  - guestbook2s
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - webapp.mycrd.com
+  resources:
+  - guestbook2s/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - webapp.mycrd.com
+  resources:
   - guestbooks
   verbs:
   - create

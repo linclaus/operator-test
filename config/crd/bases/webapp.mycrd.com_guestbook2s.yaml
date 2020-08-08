@@ -6,18 +6,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.2.5
   creationTimestamp: null
-  name: guestbooks.webapp.mycrd.com
+  name: guestbook2s.webapp.mycrd.com
 spec:
   group: webapp.mycrd.com
   names:
-    kind: Guestbook
-    listKind: GuestbookList
-    plural: guestbooks
-    singular: guestbook
+    kind: Guestbook2
+    listKind: Guestbook2List
+    plural: guestbook2s
+    singular: guestbook2
   scope: Namespaced
   validation:
     openAPIV3Schema:
-      description: Guestbook is the Schema for the guestbooks API
+      description: Guestbook2 is the Schema for the guestbook2s API
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation
@@ -32,23 +32,15 @@ spec:
         metadata:
           type: object
         spec:
-          description: GuestbookSpec defines the desired state of Guestbook
+          description: Guestbook2Spec defines the desired state of Guestbook2
           properties:
-            detail:
-              type: string
             foo:
-              description: Foo is an example field of Guestbook. Edit Guestbook_types.go
+              description: Foo is an example field of Guestbook2. Edit Guestbook2_types.go
                 to remove/update
               type: string
           type: object
         status:
-          description: GuestbookStatus defines the observed state of Guestbook
-          properties:
-            created:
-              description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
-                of cluster Important: Run "make" to regenerate code after modifying
-                this file'
-              type: boolean
+          description: Guestbook2Status defines the observed state of Guestbook2
           type: object
       type: object
   version: v1
